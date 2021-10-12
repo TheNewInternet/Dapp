@@ -1,11 +1,13 @@
 {
-  "name": "my-app",
+  "name": "dapp-instachain",
+  "homepage": "https://thenewinternet.github.io/Dapp/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "gh-pages": "^3.2.3",
     "ipfs-http-client": "^29.1.0",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
@@ -21,6 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "prettier": "prettier --write src/"
   },
