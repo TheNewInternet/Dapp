@@ -1,6 +1,6 @@
 {
   "name": "dapp-instachain",
-  "homepage": "https://thenewinternet.github.io/Dapp/",
+  "homepage": "https://thenewinternet.github.io/Dapp/build/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
