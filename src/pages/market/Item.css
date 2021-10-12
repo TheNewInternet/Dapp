@@ -1,0 +1,35 @@
+.item-index {
+  height: 400px;
+  margin: 5px;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 0.1rem;
+  text-align: center;
+  align-content: center;
+}
+.item-index-item {
+  padding: 10px;
+  align-content: center;
+}
+.item-index-img-border {
+  border-color: aquamarine;
+  border-style: solid;
+  border-radius: 0.1rem;
+}
+.item-index-img {
+  height: 250px;
+  width: 250px;
+  object-fit: contain;
+  border-radius: 10px;
+  align-content: center;
+}
+.item-delete-btn {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.item-delete-icon {
+  color: aquamarine;
+  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+}

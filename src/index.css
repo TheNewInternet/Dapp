@@ -1,0 +1,19 @@
+.index {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: monospace;
+}
+body {
+  margin: 0;
+  background: #7918f2;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

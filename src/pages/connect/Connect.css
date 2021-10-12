@@ -1,0 +1,31 @@
+.connect-index {
+  margin: 20px;
+  padding: 10px;
+  color: #ff7300;
+  border: solid;
+  border-radius: 0.1rem;
+  text-align: center;
+}
+.connect-index-title {
+  background: #7918f2;
+  position: relative;
+  top: -45px;
+}
+.connect-index-text {
+  text-align: start;
+  color: aquamarine;
+  display: ruby;
+  margin: 5px;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 0.1rem;
+}
+.cnt-wlt-btn {
+  color: aquamarine;
+  font-size: 15px;
+  font-family: monospace;
+  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+  background-color: transparent;
+  border: solid;
+  border-radius: 0.1rem;
+}
