@@ -8,13 +8,13 @@ const Navbar = () => {
       <nav className="navbar-item">
         <Link to="/" className="navbar-logo">
           <h1>
-            Bitcon<i className="fab fa-bitcoin logo"></i>
+            Instachain<i className="fab fa-ethereum logo"></i>
           </h1>
         </Link>
         <div>
-          <Link to="/Product" className="menu-icon">
+          {/* <Link to="/Product" className="menu-icon">
             Product
-          </Link>
+          </Link> */}
           <Link to="/Social" className="menu-icon">
             Social
           </Link>
@@ -22,11 +22,11 @@ const Navbar = () => {
             Market
           </Link>
         </div>
-        <div className="menu-icon ">
+        {/* <div className="menu-icon ">
           <Link to="/Connect" className="navbar-logo">
             <i className="fas fa-link "></i>
           </Link>
-        </div>
+        </div> */}
       </nav>
     </>
   );
