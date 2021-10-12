@@ -2,12 +2,11 @@
   width: 400px;
   margin: 10px;
   padding: 10px;
-  color: aquamarine;
-  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+  color: #f2f2f2;
+  /*text-shadow: 0 0 0.2em rgb(201, 119, 255);*/
 }
 
 @media only screen and (min-width: 600px) {
   .list-index {
-    
   }
 }

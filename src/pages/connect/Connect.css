@@ -1,19 +1,25 @@
 .connect-index {
   margin: 20px;
-  padding: 10px;
-  color: #ff7300;
-  border: solid;
+  align-items: center;
+  color: #f2f2f2;
+  border: #f2f2f2;
+  border-style: solid;
   border-radius: 0.1rem;
   text-align: center;
 }
 .connect-index-title {
   background: #7918f2;
   position: relative;
-  top: -45px;
+  top: -35px;
+}
+.connect-index-text-border {
+  padding: 10px;
+  border-style: solid;
+  border-radius: 0.1rem;
 }
 .connect-index-text {
   text-align: start;
-  color: aquamarine;
+  color: #f2f2f2;
   display: ruby;
   margin: 5px;
   padding: 10px;
@@ -21,10 +27,12 @@
   border-radius: 0.1rem;
 }
 .cnt-wlt-btn {
-  color: aquamarine;
+  margin: 5px;
+  padding: 10px;
+  color: #f2f2f2;
   font-size: 15px;
   font-family: monospace;
-  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+  text-shadow: 0 0 0.3em rgb(149, 24, 233);
   background-color: transparent;
   border: solid;
   border-radius: 0.1rem;

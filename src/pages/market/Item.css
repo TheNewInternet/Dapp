@@ -1,4 +1,5 @@
 .item-index {
+  background-color: #7918f2;
   height: 400px;
   margin: 5px;
   padding: 10px;
@@ -12,7 +13,8 @@
   align-content: center;
 }
 .item-index-img-border {
-  border-color: aquamarine;
+  background-color: #7918f2;
+  border-color: #f2f2f2;
   border-style: solid;
   border-radius: 0.1rem;
 }
@@ -30,6 +32,6 @@
 }
 
 .item-delete-icon {
-  color: aquamarine;
-  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+  color: #f2f2f2;
+  /*text-shadow: 0 0 0.2em rgb(201, 119, 255);*/
 }

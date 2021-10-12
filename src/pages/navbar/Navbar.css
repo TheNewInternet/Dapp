@@ -5,7 +5,7 @@
     #7918f2 48%,
     #4801ff 100%
   );
-  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+  /*text-shadow: 0 0 0.2em rgb(201, 119, 255);*/
   padding: 10px;
   height: 85px;
   display: flex;
@@ -17,7 +17,7 @@
 }
 
 .navbar-logo {
-  color: aquamarine;
+  color: #f2f2f2;
   margin: 5px;
   text-decoration: none;
 }
@@ -27,7 +27,7 @@
 }
 
 .menu-icon {
-  color: aquamarine;
+  color: #f2f2f2;
   padding: 5px 10px;
   font-size: 17px;
   text-decoration: none;
