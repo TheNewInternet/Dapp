@@ -1,5 +1,5 @@
 .item-index {
-  background-color: #7918f2;
+  background-color: #1a1a1c;
   height: 400px;
   margin: 5px;
   padding: 10px;
@@ -13,7 +13,7 @@
   align-content: center;
 }
 .item-index-img-border {
-  background-color: #7918f2;
+  background-color: #1a1a1c;
   border-color: #f2f2f2;
   border-style: solid;
   border-radius: 0.1rem;
