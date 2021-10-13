@@ -8,7 +8,7 @@ const Order = ({ add }) => {
   const wallet = useWallet();
   const account = wallet.account;
 
-  const [caption, setCaption] = useState("Hello World !");
+  const [caption, setCaption] = useState("");
   function captionChange(e) {
     setCaption(e.target.value);
   }
