@@ -4,9 +4,9 @@
     "static/js/0.19450947.chunk.js.map": "/Dapp/static/js/0.19450947.chunk.js.map",
     "static/js/1.bf737255.chunk.js": "/Dapp/static/js/1.bf737255.chunk.js",
     "static/js/1.bf737255.chunk.js.map": "/Dapp/static/js/1.bf737255.chunk.js.map",
-    "main.css": "/Dapp/static/css/main.68a13785.chunk.css",
-    "main.js": "/Dapp/static/js/main.a928e567.chunk.js",
-    "main.js.map": "/Dapp/static/js/main.a928e567.chunk.js.map",
+    "main.css": "/Dapp/static/css/main.c72e0ba1.chunk.css",
+    "main.js": "/Dapp/static/js/main.27c72d92.chunk.js",
+    "main.js.map": "/Dapp/static/js/main.27c72d92.chunk.js.map",
     "runtime-main.js": "/Dapp/static/js/runtime-main.1ce4da99.js",
     "runtime-main.js.map": "/Dapp/static/js/runtime-main.1ce4da99.js.map",
     "static/js/4.5dcfbf75.chunk.js": "/Dapp/static/js/4.5dcfbf75.chunk.js",
@@ -44,7 +44,7 @@
     "static/js/20.d9fe1e47.chunk.js": "/Dapp/static/js/20.d9fe1e47.chunk.js",
     "static/js/20.d9fe1e47.chunk.js.map": "/Dapp/static/js/20.d9fe1e47.chunk.js.map",
     "index.html": "/Dapp/index.html",
-    "static/css/main.68a13785.chunk.css.map": "/Dapp/static/css/main.68a13785.chunk.css.map",
+    "static/css/main.c72e0ba1.chunk.css.map": "/Dapp/static/css/main.c72e0ba1.chunk.css.map",
     "static/js/19.a8f03b4e.chunk.js.LICENSE.txt": "/Dapp/static/js/19.a8f03b4e.chunk.js.LICENSE.txt",
     "static/js/4.5dcfbf75.chunk.js.LICENSE.txt": "/Dapp/static/js/4.5dcfbf75.chunk.js.LICENSE.txt",
     "static/js/5.4edcd591.chunk.js.LICENSE.txt": "/Dapp/static/js/5.4edcd591.chunk.js.LICENSE.txt",
@@ -55,7 +55,7 @@
   "entrypoints": [
     "static/js/runtime-main.1ce4da99.js",
     "static/js/4.5dcfbf75.chunk.js",
-    "static/css/main.68a13785.chunk.css",
-    "static/js/main.a928e567.chunk.js"
+    "static/css/main.c72e0ba1.chunk.css",
+    "static/js/main.27c72d92.chunk.js"
   ]
 }
