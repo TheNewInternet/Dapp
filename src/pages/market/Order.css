@@ -1,10 +1,10 @@
 .order-index {
   width: 450px;
-  height: 250px;
-  margin: 10px;
-  padding-top: 10px;
-  color: #ff7300;
-  border: solid;
+  height: 450px;
+  padding-top: 20px;
+  background-color: #1a1a1c;
+  border: #f2f2f2;
+  border-style: solid;
   border-radius: 0.1rem;
   text-align: center;
 }
@@ -12,27 +12,54 @@
 .order-item {
   margin: 20px;
   display: flex;
-  color: aquamarine;
+  color: #f2f2f2;
   border-style: solid;
   border-radius: 0.1rem;
 }
+
 .order-item-title {
-  background: #7918f2;
+  background: #1a1a1c;
   position: relative;
   top: -10px;
 }
+
 .order-item-input {
+  font-family: monospace;
   padding: 5px;
-  color: aquamarine;
-  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+  color: #f2f2f2;
+  /*text-shadow: 0 0 0.2em rgb(201, 119, 255);*/
   align-content: center;
   border-style: none;
   background-color: transparent;
 }
+.order-img-input {
+  display: none;
+  position: relative;
+}
+.folder {
+  height: 250px;
+  width: 250px;
+}
+.folder-icon {
+  padding-top: 40px;
+}
+.preview {
+}
+.preview-img {
+  height: 250px;
+  width: 250px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.preview-dlt-icon {
+  padding-left: 20px;
+}
+
 .order-btn {
   padding: 10px;
-  color: aquamarine;
-  text-shadow: 0 0 0.2em rgb(201, 119, 255);
+  color: #f2f2f2;
+  text-shadow: 0 0 0.3em rgb(149, 24, 233);
   background-color: transparent;
   border: solid;
   border-radius: 0.1rem;
@@ -40,6 +67,5 @@
 
 @media only screen and (min-width: 600px) {
   .order-index {
-   
   }
 }

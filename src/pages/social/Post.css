@@ -1,9 +1,58 @@
 .post-index {
-  height: 250px;
-  margin: 10px;
-  padding: 10px;
-  color: #ff7300;
-  border: solid;
+  width: 450px;
+  height: 500px;
+  padding-top: 20px;
+  background-color: #1a1a1c;
+  border: #f2f2f2;
+  border-style: solid;
   border-radius: 0.1rem;
   text-align: center;
+}
+.post-page-title {
+  color: #f2f2f2;
+  background-color: #1a1a1c;
+  position: relative;
+  font-size: 50px;
+  top: -55px;
+}
+.post-item {
+  margin: 20px;
+  display: flex;
+  color: #f2f2f2;
+  border-style: solid;
+  border-radius: 0.1rem;
+}
+.post-item-title {
+  background: #1a1a1c;
+  position: relative;
+  top: -10px;
+}
+.post-img-input {
+  display: none;
+  position: relative;
+}
+.post-textarea {
+  font-family: monospace;
+  padding: 5px;
+  color: #f2f2f2;
+  /*text-shadow: 0 0 0.2em rgb(201, 119, 255);*/
+  align-content: center;
+  border-style: none;
+  background-color: transparent;
+}
+
+.folder {
+  height: 250px;
+  width: 250px;
+}
+.folder-icon {
+  padding-top: 40px;
+}
+.post-submit-btn {
+  padding: 10px;
+  color: #f2f2f2;
+  text-shadow: 0 0 0.3em rgb(149, 24, 233);
+  background-color: transparent;
+  border: solid;
+  border-radius: 0.1rem;
 }

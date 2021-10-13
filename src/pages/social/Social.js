@@ -5,24 +5,18 @@ import Feed from "./Feed";
 import { created } from "../../api";
 // import Create from "../../api"
 
-
-const init = async ()=>{
-
+const init = async () => {
   created();
-  
-}
-
-
-init()
-const Social = () => {
-
-  return (<div>
-            <h5 className="social-index">Decentralized Social Network</h5>
-            <Post></Post>
-            <Feed></Feed>
-         </div>);
 };
+init();
 
-
+const Social = () => {
+  return (
+    <div className="social-index">
+      <Post />
+      <Feed />
+    </div>
+  );
+};
 
 export default Social;

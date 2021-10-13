@@ -12,9 +12,6 @@ const Navbar = () => {
           </h1>
         </Link>
         <div>
-          {/* <Link to="/Product" className="menu-icon">
-            Product
-          </Link> */}
           <Link to="/Social" className="menu-icon">
             Social
           </Link>
@@ -22,11 +19,11 @@ const Navbar = () => {
             Market
           </Link>
         </div>
-        {/* <div className="menu-icon ">
+        <div className="menu-icon ">
           <Link to="/Connect" className="navbar-logo">
             <i className="fas fa-link "></i>
           </Link>
-        </div> */}
+        </div>
       </nav>
     </>
   );

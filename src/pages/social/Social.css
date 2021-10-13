@@ -1,9 +1,6 @@
 .social-index {
-  height: 250px;
-  margin: 10px;
-  padding: 10px;
-  color: #ff7300;
-  border: solid;
-  border-radius: 0.1rem;
-  text-align: center;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
