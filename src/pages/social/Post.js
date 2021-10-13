@@ -34,9 +34,8 @@ class Post extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="post-index">
-        <span className="post-page-title">EditPage</span>
         <label className="post-item">
-          <span className="post-item-title">Caption</span>
+        <i class="fas fa-pen post-item-title"/>
           <textarea
             id="caption"
             name="caption"
@@ -45,7 +44,6 @@ class Post extends React.Component {
           />
         </label>
         <label className="post-item">
-          <span className="post-item-title">Photo</span>
           <div className="folder">
             <input
               type="file"

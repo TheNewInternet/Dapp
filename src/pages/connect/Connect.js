@@ -11,7 +11,7 @@ const Connect = () => {
     <>
       <div className="connect-index">
         <h1>
-          <span className="connect-index-title">Connect Wallet</span>
+          Connect Wallet
         </h1>
         {wallet.status === "connected" ? (
           <>
@@ -30,6 +30,15 @@ const Connect = () => {
           </>
         ) : (
           <div>
+            <div>
+              <div className="connect-index-text">
+                <div>Account: ----------</div>
+                <div>Balance: ---------- WEI</div>
+                <div>Type: ---------</div>
+                <div>Network: ----------</div>
+                <div>BlockNumber: ----------</div>
+              </div>
+            </div>
             <button className="cnt-wlt-btn" onClick={() => wallet.connect()}>
               Connect to MetaMask
             </button>

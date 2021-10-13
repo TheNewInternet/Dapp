@@ -1,31 +1,30 @@
 .order-index {
   width: 450px;
-  height: 450px;
+  height: 500px;
   padding-top: 20px;
-  background-color: #1a1a1c;
+  background-color: #27272c;
   border: #f2f2f2;
   border-style: solid;
-  border-radius: 0.1rem;
+  border-radius: 1rem; 
   text-align: center;
 }
 
 .order-item {
   margin: 20px;
   display: flex;
+  background-color: #353547;
   color: #f2f2f2;
   border-style: solid;
-  border-radius: 0.1rem;
+  border-radius: 1rem;
 }
 
 .order-item-title {
-  background: #1a1a1c;
-  position: relative;
-  top: -10px;
+  padding: 10px;
 }
 
 .order-item-input {
   font-family: monospace;
-  padding: 5px;
+  padding: 5px ;
   color: #f2f2f2;
   /*text-shadow: 0 0 0.2em rgb(201, 119, 255);*/
   align-content: center;
@@ -49,7 +48,7 @@
   height: 250px;
   width: 250px;
   object-fit: contain;
-  border-radius: 10px;
+  
 }
 
 .preview-dlt-icon {
@@ -57,12 +56,17 @@
 }
 
 .order-btn {
+  width: 100px;
   padding: 10px;
   color: #f2f2f2;
-  text-shadow: 0 0 0.3em rgb(149, 24, 233);
-  background-color: transparent;
-  border: solid;
-  border-radius: 0.1rem;
+  font-family: monospace;
+  background-image: linear-gradient(
+    -225deg,
+    #32e48b 0%,
+    #18a2f2 48%,
+    #4801ff 100%
+  );
+  border-radius: 1rem;
 }
 
 @media only screen and (min-width: 600px) {
