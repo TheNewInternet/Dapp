@@ -7,9 +7,9 @@ const Navbar = () => {
     <>
       <nav className="navbar-item">
         <Link to="/" className="navbar-logo">
-          <h1>
-            Instachain<i className="fab fa-ethereum logo"></i>
-          </h1>
+          <div className="logo">
+            <i className="fab fa-ethereum"/>Instachain
+          </div>
         </Link>
         <div>
           <Link to="/Social" className="menu-icon">

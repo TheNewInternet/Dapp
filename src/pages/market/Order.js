@@ -8,7 +8,7 @@ const Order = ({ add }) => {
   const wallet = useWallet();
   const account = wallet.account;
 
-  const [caption, setCaption] = useState("Hello World !");
+  const [caption, setCaption] = useState("");
   function captionChange(e) {
     setCaption(e.target.value);
   }
@@ -48,15 +48,15 @@ const Order = ({ add }) => {
   return (
     <div className="order-index">
       <div className="order-item">
-        <span className="order-item-title">account</span>
+      <i class="fas fa-user fa-x order-item-title"/>
         {wallet.status === "connected" ? (
-          <div>{wallet.account}</div>
+          <div className="order-item-title">{wallet.account}</div>
         ) : (
-          <div> no connect </div>
+          <div className="order-item-title"> no connect </div>
         )}
       </div>
       <div className="order-item">
-        <span className="order-item-title">caption</span>
+      <i class="fas fa-pen  order-item-title"/>
         <input
           className="order-item-input"
           type="text"
@@ -65,7 +65,7 @@ const Order = ({ add }) => {
         />
       </div>
       <div className="order-item">
-        <span className="order-item-title">Image</span>
+        <span className="order-item-title"></span>
         {!isUploaded ? (
           <>
             <div className="folder">
