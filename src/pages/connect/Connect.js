@@ -10,9 +10,7 @@ const Connect = () => {
   return (
     <>
       <div className="connect-index">
-        <h1>
-          Connect Wallet
-        </h1>
+        <h1>Connect Wallet</h1>
         {wallet.status === "connected" ? (
           <>
             <div>

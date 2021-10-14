@@ -48,7 +48,7 @@ const Order = ({ add }) => {
   return (
     <div className="order-index">
       <div className="order-item">
-      <i class="fas fa-user fa-x order-item-title"/>
+        <i class="fas fa-user fa-x order-item-title" />
         {wallet.status === "connected" ? (
           <div className="order-item-title">{wallet.account}</div>
         ) : (
@@ -56,7 +56,7 @@ const Order = ({ add }) => {
         )}
       </div>
       <div className="order-item">
-      <i class="fas fa-pen  order-item-title"/>
+        <i class="fas fa-pen  order-item-title" />
         <input
           className="order-item-input"
           type="text"
