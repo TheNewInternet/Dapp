@@ -4,6 +4,7 @@ import contract from "./contracts/contractInstance";
 let account = "";
 let buffer = "";
 let caption = "";
+let fileType = "";
 let loading = false;
 
 // data variables
@@ -25,6 +26,10 @@ const captureFile = (file) => {
       buffer = await convertToBuffer(reader.result);
     };
   } else buffer = "";
+};
+
+const captureFileType = (_fileType) => {
+  fileType = _fileType;
 };
 
 const captureCaption = (_caption) => {
@@ -54,14 +59,21 @@ const onSubmit = async () => {
     .then((hashedImg) => {
       imgHash = hashedImg[0].hash;
       console.log(imgHash);
-      return convertToBuffer(caption);
     })
-    .then((bufferDesc) =>
-      ipfs.add(bufferDesc).then((hashedText) => hashedText[0].hash)
-    )
-    .then((textHash) => {
+
+
+    let bufferDesc = await  convertToBuffer(caption);
+    let hashedText = await ipfs.add(bufferDesc)
+    let textHash = hashedText[0].hash
+    
+
+
+    let bufferType = await  convertToBuffer(fileType);
+    let hashedType = await ipfs.add(bufferType)
+    let typeHash =  hashedType[0].hash
+
       contract.methods
-        .sendHash(imgHash, textHash)
+        .sendHash(imgHash, textHash, typeHash)
         .send({ from: account }, (error, transactionHash) => {
           if (typeof transactionHash !== "undefined") {
             alert("Storing on Ethereum...");
@@ -71,9 +83,9 @@ const onSubmit = async () => {
             });
           }
           loading = false;
-        });
-    });
-};
+        })
+      }
+        
 
 /**
  * validates if image & captions
@@ -115,6 +127,7 @@ const getPosts = async () => {
   if (counter !== null) {
     const hashes = [];
     const captions = [];
+    const types = [];
     for (let i = counter; i >= 1; i -= 1) {
       hashes.push(
         contract.methods.getHash(i).call({
@@ -133,13 +146,24 @@ const getPosts = async () => {
       );
     }
 
+
+    for (let i = 0; i < postHashes.length; i += 1) {
+      types.push(
+        fetch(`https://gateway.ipfs.io/ipfs/${postHashes[i].fileType}`).then(
+          (res) => res.text()
+        )
+      );
+    }
+
     const postCaptions = await Promise.all(captions);
+    const postFileType = await Promise.all(types);
 
     for (let i = 0; i < postHashes.length; i += 1) {
       posts.push({
         id: i,
         key: `key${i}`,
         caption: postCaptions[i],
+        fileType: postFileType[i],
         src: `https://gateway.ipfs.io/ipfs/${postHashes[i].img}`,
       });
     }
@@ -157,6 +181,7 @@ export {
   onSubmit,
   handleOk,
   captureFile,
+  captureFileType,
   captureCaption,
   created,
 };

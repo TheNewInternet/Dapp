@@ -1,6 +1,6 @@
 import React from "react";
 import "./Post.css";
-import { captureCaption, captureFile, handleOk } from "../../api";
+import { captureCaption, captureFile, captureFileType, handleOk } from "../../api";
 
 class Post extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class Post extends React.Component {
     console.log(event.target.files[0]);
     // this.setState({photo: event.target.files[0]});
     captureFile(event.target.files[0]);
+    captureFileType(event.target.files[0].type);
   }
 
   handleSubmit(event) {
@@ -35,7 +36,7 @@ class Post extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="post-index">
         <label className="post-item">
-        <i class="fas fa-pen post-item-title"/>
+          <i class="fas fa-pen post-item-title" />
           <textarea
             id="caption"
             name="caption"

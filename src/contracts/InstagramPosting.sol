@@ -9,6 +9,7 @@ contract InstagramPosting{
         address owner;
         string imgHash;
         string textHash;
+        string typeHash;
     }
     
     // A mapping list for posts from Post struct.
@@ -27,7 +28,8 @@ contract InstagramPosting{
      */ 
     function sendHash(
         string memory _img, 
-        string memory _text
+        string memory _text,
+        string memory _type
     ) 
         public 
     {
@@ -36,6 +38,7 @@ contract InstagramPosting{
         posting.owner = msg.sender;
         posting.imgHash = _img;
         posting.textHash = _text;
+        posting.typeHash = _type;
         
         emit NewPost();
     }
@@ -46,12 +49,14 @@ contract InstagramPosting{
         returns (
             string memory img, 
             string memory text, 
+            string memory fileType, 
             address owner
         ) 
     {
         owner = posts[_index].owner;
         img = posts[_index].imgHash;
         text = posts[_index].textHash;
+        fileType = posts[_index].typeHash;
     }
     
     /**
