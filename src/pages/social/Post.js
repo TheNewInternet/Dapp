@@ -49,7 +49,7 @@ class Post extends React.Component {
             <input
               type="file"
               id="upload-input"
-              accept=".jpg,.jpeg,.gif,.png"
+              accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
               //className="post-img-input"
               onChange={this.handlePhotoChange}
             />

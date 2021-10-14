@@ -54,7 +54,7 @@ const onSubmit = async () => {
   loading = true;
   let imgHash;
 
-  ipfs
+  await ipfs
     .add(buffer)
     .then((hashedImg) => {
       imgHash = hashedImg[0].hash;
@@ -67,14 +67,19 @@ const onSubmit = async () => {
     let textHash = hashedText[0].hash
     
 
-
+    console.log(`fileType: ${fileType}`)
     let bufferType = await  convertToBuffer(fileType);
+    console.log(`bufferType: ${bufferType}`)
     let hashedType = await ipfs.add(bufferType)
     let typeHash =  hashedType[0].hash
+    console.log(`typeHash: ${typeHash}`)
 
-      contract.methods
+    console.log(typeof typeHash);
+
+     await  contract.methods
         .sendHash(imgHash, textHash, typeHash)
         .send({ from: account }, (error, transactionHash) => {
+          console.log(`transactionHash: ${transactionHash}`)
           if (typeof transactionHash !== "undefined") {
             alert("Storing on Ethereum...");
             contract.once("NewPost", { from: account }, () => {

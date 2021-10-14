@@ -6,11 +6,11 @@ import { getPosts, updateAccount } from "../../api";
 
 function Blog(props) {
 
-
   const content = props.posts.map((post) => (
+    // <div className="blog-index-item">{post.fileType}</div>
     <div className="blog-index">
       <div key={v4()}>
-       {post.fileType.includes("mov") ? (
+       {post.fileType.startsWith("video") ? (
         <video src={post.src} alt="" className="blog-index-img" />):(
         <img src={post.src} alt="" className="blog-index-img" />)}
         <div className="blog-index-img-border">
