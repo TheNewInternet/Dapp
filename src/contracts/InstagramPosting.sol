@@ -1,23 +1,19 @@
+// SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.9;
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
 
-contract InstagramPosting{
-    using SafeMath for uint256;
-    
-    // This struct is for the properties of a post.
+contract InstagramPosting {
+
     struct Post{
         address owner;
         string imgHash;
         string textHash;
         string typeHash;
     }
+    Post[] public post;
     
-    // A mapping list for posts from Post struct.
-    mapping(uint256 => Post) posts;
+    mapping(address => uint) public lastUpdate;
     
-    // A counter for the posts mapping list.
-    uint256 postCtr;
-    
+
     // Event which will notify new posts.    
     event NewPost();
     
@@ -26,20 +22,18 @@ contract InstagramPosting{
      * @param _img hash from IPFS.
      * @param _text hash from IPFS.
      */ 
-    function sendHash(
+     function sendHash(
+        address _contract,
         string memory _img, 
         string memory _text,
         string memory _type
     ) 
         public 
+        payable
     {
-        postCtr = postCtr.add(1);
-        Post storage posting = posts[postCtr];
-        posting.owner = msg.sender;
-        posting.imgHash = _img;
-        posting.textHash = _text;
-        posting.typeHash = _type;
-        
+        (bool success, bytes memory data) = _contract.delegatecall(
+            abi.encodeWithSignature("sendHash(string,string,string)", _img, _text, _type)
+        );
         emit NewPost();
     }
     
@@ -53,16 +47,23 @@ contract InstagramPosting{
             address owner
         ) 
     {
-        owner = posts[_index].owner;
-        img = posts[_index].imgHash;
-        text = posts[_index].textHash;
-        fileType = posts[_index].typeHash;
+        owner = post[_index].owner;
+        img = post[_index].imgHash;
+        text = post[_index].textHash;
+        fileType = post[_index].typeHash;
     }
     
     /**
      * @dev Function to get length of total posts.
      * @return The total count of posts.
      */
-    function getCounter() public view returns(uint256) { return postCtr; }
+    function getCounter() public view returns(uint256) { return post.length; }
     
+    function checkStamp(address _contract) 
+        external
+    {
+        (bool success, bytes memory data) = _contract.delegatecall(
+            abi.encodeWithSignature("checkStamp()")
+        );
+    }
 }
