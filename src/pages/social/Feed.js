@@ -1,6 +1,7 @@
 import "./Feed.css";
 import { v4 } from "uuid";
 import { useState } from "react";
+import Post from "./Post";
 
 import { getPosts, updateAccount } from "../../api";
 
@@ -11,7 +12,7 @@ function Blog(props) {
     <div className="blog-index">
       <div key={v4()}>
        {post.fileType.startsWith("video") ? (
-        <video src={post.src} alt="" className="blog-index-img" />):(
+        <video src={post.src} alt="" className="blog-index-img" controls/>):(
         <img src={post.src} alt="" className="blog-index-img" />)}
         <div className="blog-index-img-border">
           <div className="blog-index-item">{post.caption}</div>
@@ -32,6 +33,7 @@ getList();
 const Feed = () => {
   return (
     <div className="feed-index">
+      <Post />
       <Blog posts={posts} />
     </div>
   );
