@@ -27,7 +27,7 @@ class Post extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("An caption was submitted: " + this.state.caption);
+    // alert("An caption was submitted: " + this.state.caption);
     event.preventDefault();
     handleOk();
   }
@@ -44,7 +44,12 @@ class Post extends React.Component {
             onChange={this.handleCaptionChange}
           />
         </label>
-        <label className="post-item">
+        <label htmlFor="upload-input" className="post-textarea">
+              <i className="fas fa-folder-open fa-2x folder-icon" id="fasfo"></i>
+            </label>
+            <br/>
+        <input type="submit" value="Submit" className="post-submit-btn" />
+
           <div className="folder">
             <input
               type="file"
@@ -52,13 +57,10 @@ class Post extends React.Component {
               accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
               //className="post-img-input"
               onChange={this.handlePhotoChange}
+              hidden
             />
-            <label htmlFor="upload-input">
-              <i className="fas fa-folder-open fa-10x folder-icon"></i>
-            </label>
+
           </div>
-        </label>
-        <input type="submit" value="Submit" className="post-submit-btn" />
       </form>
     );
   }

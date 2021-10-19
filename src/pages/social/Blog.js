@@ -1,3 +1,5 @@
+import "./Blog.css";
+
 const Blog = ({ blogCaption, blogImage }) => {
   return (
     <div className="item-index">

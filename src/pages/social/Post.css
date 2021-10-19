@@ -1,6 +1,6 @@
 .post-index {
   width: 400px;
-  height: 450px;
+  height: 250px;
   padding-top: 20px;
   background-color: #27272c;
   border: #f2f2f2;
@@ -39,7 +39,7 @@
   width: 250px;
 }
 .folder-icon {
-  padding-top: 40px;
+  padding: 20px;
 }
 .post-submit-btn {
   width: 100px;
@@ -54,3 +54,5 @@
   );
   border-radius: 1rem;
 }
+
+

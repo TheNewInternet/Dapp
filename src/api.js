@@ -1,4 +1,5 @@
-import web3 from "./contracts/web3";
+import currentWeb3 from "./contracts/web3";
+import Web3 from "./contracts/web3";
 import ipfs from "./contracts/ipfs";
 import contract from "./contracts/contractInstance";
 let account = "";
@@ -101,7 +102,7 @@ const handleOk = () => {
   //   let _buffer = captureFile(_file);
   //   console.log(!_buffer)
   if (!buffer || !caption) {
-    alert("Please fill in the information.");
+    alert("Please fill in the media and caption.");
   } else {
     onSubmit();
   }
@@ -113,7 +114,7 @@ const created = async () => {
 };
 
 const updateAccount = async () => {
-  const accounts = await web3.eth.getAccounts();
+  const accounts = await Web3.eth.getAccounts();
   const _account = accounts[0];
   // this.currentAccount = account;
   account = _account;
@@ -145,7 +146,7 @@ const getPosts = async () => {
 
     for (let i = 0; i < postHashes.length; i += 1) {
       captions.push(
-        fetch(`https://gateway.ipfs.io/ipfs/${postHashes[i].text}`).then(
+        fetch(`https://ipfs.io/ipfs/${postHashes[i].text}`).then(
           (res) => res.text()
         )
       );
@@ -154,7 +155,7 @@ const getPosts = async () => {
 
     for (let i = 0; i < postHashes.length; i += 1) {
       types.push(
-        fetch(`https://gateway.ipfs.io/ipfs/${postHashes[i].fileType}`).then(
+        fetch(`https://ipfs.io/ipfs/${postHashes[i].fileType}`).then(
           (res) => res.text()
         )
       );
@@ -169,7 +170,7 @@ const getPosts = async () => {
         key: `key${i}`,
         caption: postCaptions[i],
         fileType: postFileType[i],
-        src: `https://gateway.ipfs.io/ipfs/${postHashes[i].img}`,
+        src: `https://ipfs.io/ipfs/${postHashes[i].img}`,
       });
     }
 
@@ -180,6 +181,73 @@ const getPosts = async () => {
   return posts;
 };
 
+var eth;
+        var isTestnet = 'false';
+// var ethereum = 
+        async function addNetwork(type='web3') {
+
+            // if (type === 'web3') {
+            //     if (typeof window.ethereum !== 'undefined') {
+            //         eth = await web3(window.ethereum);
+            //     } else if (typeof web3 !== 'undefined') {
+            //         eth = await web3(web3.givenProvider);
+            //     } else {
+            //         eth = await web3(window.ethereum);
+            //     }
+            // }
+eth = currentWeb3.eth;
+            if (typeof eth !== 'undefined') {
+                var network = 0;
+                console.log(await eth.net.getId())
+                network = await eth.net.getId();
+                let netID = network.toString();
+                var params;
+                if (isTestnet == "false") {
+                    if (netID == "9901") {
+                        alert("Instachain Network has already been added to Metamask.");
+                        return;
+                    } else {
+                        params = [
+                          {
+                            chainId: '0x26AD',
+                            chainName: 'Instachain',
+                        //     nativeCurrency: {
+                        //         name: 'FTM',
+                        //         symbol: 'FTM',
+                        //         decimals: 18
+                        //     },
+                            rpcUrls: ['http://66.228.52.222:8545'],
+                            // blockExplorerUrls: ['https://ftmscan.com/']
+                        }]
+                    }
+                } 
+                // else {
+                //     if (netID == "4002") {
+                //         alert("Fantom Test Network has already been added to Metamask.");
+                //         return;
+                //     } else {
+                //         params = [{
+                //             chainId: '0xfa2',
+                //             chainName: 'Fantom Testnet',
+                //             nativeCurrency: {
+                //                 name: 'FTM',
+                //                 symbol: 'FTM',
+                //                 decimals: 18
+                //             },
+                //             rpcUrls: ['https://rpc.testnet.fantom.network/'],
+                //             blockExplorerUrls: ['https://testnet.ftmscan.com/']
+                //         }]
+                //     }
+                // }
+
+                window.ethereum.request({ method: 'wallet_addEthereumChain', params })
+                    .then(() => console.log('Success'))
+                    .catch((error) => console.log("Error", error.message));
+            } else {
+                alert('Unable to locate a compatible web3 browser!');
+            }
+        }
+
 export {
   getPosts,
   updateAccount,
@@ -189,4 +257,5 @@ export {
   captureFileType,
   captureCaption,
   created,
+  addNetwork
 };

@@ -13,7 +13,6 @@ init();
 const Social = () => {
   return (
     <div className="social-index">
-      <Post />
       <Feed />
     </div>
   );

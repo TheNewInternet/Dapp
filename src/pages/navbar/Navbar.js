@@ -14,17 +14,17 @@ const Navbar = () => {
         </Link>
         <div>
           <Link to="/Social" className="menu-icon">
-            Social
+            Feeds
           </Link>
-          <Link to="/Market" className="menu-icon">
+          {/* <Link to="/Market" className="menu-icon">
             Market
-          </Link>
+          </Link> */}
         </div>
-        <div className="menu-icon ">
+        {/* <div className="menu-icon ">
           <Link to="/Connect" className="navbar-logo">
             <i className="fas fa-link "></i>
           </Link>
-        </div>
+        </div> */}
       </nav>
     </>
   );
