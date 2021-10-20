@@ -5,9 +5,9 @@ import { captureCaption, captureFile, captureFileType, handleOk } from "../../ap
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      caption: "Caption..",
-    };
+    // this.state = {
+    //   caption: "Caption..",
+    // };
 
     this.handleCaptionChange = this.handleCaptionChange.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
@@ -36,7 +36,7 @@ class Post extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="post-index">
         <label className="post-item">
-          <i class="fas fa-pen post-item-title" />
+          <i className="fas fa-pen post-item-title" />
           <textarea
             id="caption"
             name="caption"

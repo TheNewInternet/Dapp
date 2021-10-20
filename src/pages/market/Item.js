@@ -25,7 +25,7 @@ const Item = ({
         </div>
       </div>
       <button onClick={deleteItem} className="item-delete-btn">
-        <i class="fas fa-times item-delete-icon"></i>
+        <i className="fas fa-times item-delete-icon"></i>
       </button>
     </div>
   );

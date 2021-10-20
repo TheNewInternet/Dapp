@@ -13,7 +13,7 @@ const Navbar = () => {
           </div>
         </Link>
         <div>
-          <Link to="/Social" className="menu-icon">
+          <Link to="/Feeds" className="menu-icon">
             Feeds
           </Link>
           {/* <Link to="/Market" className="menu-icon">

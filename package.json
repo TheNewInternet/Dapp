@@ -1,7 +1,12 @@
 {
   "name": "dapp-instachain",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "author": "Austin Liu <austin362667@gmail.com>",
+  "contributors": [
+    "pppp",
+    "hung"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -14,7 +19,6 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
-    "use-wallet": "^0.10.0",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.2",
     "web3": "^1.6.0"
