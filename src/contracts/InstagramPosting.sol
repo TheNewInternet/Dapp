@@ -1,8 +1,7 @@
-pragma solidity 0.8.9;
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.9;
 
-contract InstagramPosting{
-    using SafeMath for uint256;
+contract InstagramPosting {
     
     // This struct is for the properties of a post.
     struct Post{
@@ -20,12 +19,9 @@ contract InstagramPosting{
     
     // Event which will notify new posts.    
     event NewPost();
-    
-    /**
-     * @dev Function to store image & text hashes.
-     * @param _img hash from IPFS.
-     * @param _text hash from IPFS.
-     */ 
+
+    //Store new data 20,000 GAS。
+    //Update Data 5000 GAS。
     function sendHash(
         string memory _img, 
         string memory _text,
@@ -33,15 +29,12 @@ contract InstagramPosting{
     ) 
         public 
     {
-        postCtr = postCtr.add(1);
-        Post storage posting = posts[postCtr];
-        posting.owner = msg.sender;
-        posting.imgHash = _img;
-        posting.textHash = _text;
-        posting.typeHash = _type;
-        
+        postCtr++;
+        posts[postCtr] = Post(msg.sender, _img, _text, _type);
+
         emit NewPost();
     }
+
     
     function getHash(uint256 _index) 
         public 
@@ -53,10 +46,13 @@ contract InstagramPosting{
             address owner
         ) 
     {
-        owner = posts[_index].owner;
-        img = posts[_index].imgHash;
-        text = posts[_index].textHash;
-        fileType = posts[_index].typeHash;
+        return
+        (
+            posts[_index].imgHash,
+            posts[_index].textHash,
+            posts[_index].typeHash,
+            posts[_index].owner
+        );
     }
     
     /**
@@ -64,5 +60,4 @@ contract InstagramPosting{
      * @return The total count of posts.
      */
     function getCounter() public view returns(uint256) { return postCtr; }
-    
 }

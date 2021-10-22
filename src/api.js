@@ -1,12 +1,47 @@
 import currentWeb3 from "./contracts/web3";
-import Web3 from "./contracts/web3";
+// import Web3 from "./contracts/web3";
 import ipfs from "./contracts/ipfs";
-import contract from "./contracts/contractInstance";
+import Contract from "./contracts/contractInstance";
+import reward from "./contracts/reward.js";
+import { v4 } from "uuid";
+
 let account = "";
+let key = "";
 let buffer = "";
 let caption = "";
 let fileType = "";
 let loading = false;
+
+// window.localStorage.clear();
+const init = async ()=>{
+  account = await window.localStorage.getItem('account')
+if (account!==undefined && account!=="" && account!==null){
+ account = await window.localStorage.getItem('account')
+//  key = await window.localStorage.getItem('account_pwd')
+}else{
+  account = await currentWeb3.eth.personal.newAccount("")
+  
+  // account = accountData['address']
+  await window.localStorage.setItem('account', account)
+  
+  // key = accountData['privateKey']  
+  // await window.localStorage.setItem('account_pwd', key)
+}
+
+console.log(`account: ${account}`)
+let balance = await currentWeb3.eth.getBalance(account)
+console.log(`balance: ${balance}`)
+
+} 
+(async () => {
+  await init()
+  await currentWeb3.eth.personal.unlockAccount(account, "", 0)
+  // all of the script.... 
+  await currentWeb3.eth.getGasPrice().then((result) => {
+    console.log(currentWeb3.utils.fromWei(result, 'ether'))
+    })
+  
+})();
 
 // data variables
 // const data = ()=>{
@@ -52,6 +87,7 @@ const convertToBuffer = async (reader) => {
  */
 const onSubmit = async () => {
   alert("Uploading on IPFS...");
+  console.log(loading)
   loading = true;
   let imgHash;
 
@@ -74,22 +110,35 @@ const onSubmit = async () => {
     let hashedType = await ipfs.add(bufferType)
     let typeHash =  hashedType[0].hash
     console.log(`typeHash: ${typeHash}`)
-
+    console.log(loading)
     console.log(typeof typeHash);
+console.log(account)
+// let balance = await currentWeb3.eth.getBalance(account)
+// console.log(`balance: ${balance}`)
 
-     await  contract.methods
+// currentWeb3.eth.personal.unlockAccount(account, "", 0).then(
+//   console.log('Account unlocked!')
+// )
+
+
+
+    await  Contract.methods
         .sendHash(imgHash, textHash, typeHash)
-        .send({ from: account }, (error, transactionHash) => {
+        .send({ from: account ,
+        //         gasLimit: currentWeb3.utils.toHex(42000),
+        //         gasPrice: currentWeb3.utils.toHex(5000000)
+              }, (error, transactionHash) => {
           console.log(`transactionHash: ${transactionHash}`)
           if (typeof transactionHash !== "undefined") {
             alert("Storing on Ethereum...");
-            contract.once("NewPost", { from: account }, () => {
+            Contract.once("NewPost", { from: account }, () => {
               getPosts();
               alert("Operation Finished! Refetching...");
             });
           }
           loading = false;
         })
+        console.log(loading)
       }
         
 
@@ -109,24 +158,27 @@ const handleOk = () => {
 };
 
 const created = async () => {
-  await updateAccount();
+  // await updateAccount();
   await getPosts();
 };
 
-const updateAccount = async () => {
-  const accounts = await Web3.eth.getAccounts();
-  const _account = accounts[0];
-  // this.currentAccount = account;
-  account = _account;
-  return _account;
-};
+// const updateAccount = async () => {
+//   const accounts = await Web3.eth.getAccounts();
+//   const _account = accounts[0];
+//   // this.currentAccount = account;
+//   account = _account;
+//   return _account;
+// };
 
 const getPosts = async () => {
+  console.log(Contract.options.address)
   loading = false;
   const posts = [];
-  const counter = await contract.methods.getCounter().call({
+  const counter = await Contract.methods.getCounter().call(
+    {
     from: account,
-  });
+  }
+  );
 
   console.log(counter);
 
@@ -136,7 +188,7 @@ const getPosts = async () => {
     const types = [];
     for (let i = counter; i >= 1; i -= 1) {
       hashes.push(
-        contract.methods.getHash(i).call({
+        Contract.methods.getHash(i).call({
           from: account,
         })
       );
@@ -167,7 +219,7 @@ const getPosts = async () => {
     for (let i = 0; i < postHashes.length; i += 1) {
       posts.push({
         id: i,
-        key: `key${i}`,
+        key: `key-${v4()}`,
         caption: postCaptions[i],
         fileType: postFileType[i],
         src: `https://ipfs.io/ipfs/${postHashes[i].img}`,
@@ -202,8 +254,8 @@ eth = currentWeb3.eth;
                 network = await eth.net.getId();
                 let netID = network.toString();
                 var params;
-                if (isTestnet == "false") {
-                    if (netID == "9901") {
+                if (isTestnet === "false") {
+                    if (netID === "9901") {
                         alert("Instachain Network has already been added to Metamask.");
                         return;
                     } else {
@@ -250,12 +302,12 @@ eth = currentWeb3.eth;
 
 export {
   getPosts,
-  updateAccount,
+  // updateAccount,
   onSubmit,
   handleOk,
   captureFile,
   captureFileType,
   captureCaption,
   created,
-  addNetwork
+  addNetwork,
 };
